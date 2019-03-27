@@ -1,33 +1,23 @@
-import java.io.*;
-import java.math.*;
-import java.security.*;
-import java.text.*;
+import java.io.IOException;
 import java.util.*;
-import java.util.concurrent.*;
-import java.util.function.*;
-import java.util.regex.*;
-import java.util.stream.*;
-
-import static java.util.stream.Collectors.joining;
-import static java.util.stream.Collectors.toList;
 
 public class MigratoryBirds {
 
     // Complete the migratoryBirds function below.
     static int migratoryBirds(List<Integer> arr) {
         Map<Integer, Integer> map = new HashMap<>();
-        int most = 0 ;
-        int max = 0 ;
+        int most = 0;
+        int max = 0;
 
         for (Integer i : arr) {
 
             map.merge(i, 1, Integer::sum);
 
         }
-        for (Map.Entry<Integer,Integer >entry : map.entrySet()){
-            if (entry.getValue()> max ){
+        for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+            if (entry.getValue() > max) {
                 most = entry.getKey();
-                max = entry.getValue();
+                max =    entry.getValue();
             }
         }
 
