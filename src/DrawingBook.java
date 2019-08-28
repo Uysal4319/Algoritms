@@ -10,15 +10,30 @@ public class DrawingBook {
      * Complete the pageCount function below.
      */
     static int pageCount(int n, int p) {
-        int page=p*2;
+        int forward = 0;
+        int reversed = 0;
 
-        if (page> n){
-            
+        if (p != 1) {
+            double result = Math.ceil((p - 1) / 2);
+            forward = (int) Math.ceil(result);
         }
-        for (int i = 0; i<p ;i++){
-            
-         }
-        return n;
+
+        if (p != n) {
+            if (p % 2 == 0) {
+                double result = (n-p) /2;
+                reversed = (int) Math.ceil(result);
+            } else if (p % 2 == 1) {
+                if (n - 1 == p) {
+                    reversed = 0;
+                }
+                double result = (n-p) /2;
+                reversed = (int) Math.ceil(result);
+            }
+        }
+        if(forward<=reversed){
+            return forward;
+        }
+        return reversed;
     }
 
     private static final Scanner scanner = new Scanner(System.in);
