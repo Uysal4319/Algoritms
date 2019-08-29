@@ -14,23 +14,25 @@ public class DrawingBook {
         int reversed = 0;
 
         if (p != 1) {
-            double result = Math.ceil((p - 1) / 2);
+            double result = ((double) p - 1) / 2;
             forward = (int) Math.ceil(result);
         }
 
         if (p != n) {
-            if (p % 2 == 0) {
-                double result = (n-p) /2;
-                reversed = (int) Math.ceil(result);
-            } else if (p % 2 == 1) {
+            if (n % 2 == 0) {
                 if (n - 1 == p) {
                     reversed = 0;
                 }
-                double result = (n-p) /2;
+                double result = ((double) n - (double) p) / 2;
                 reversed = (int) Math.ceil(result);
+            } else if (n % 2 == 1) {
+                double result = ((double) n - (double) p) / 2;
+                reversed = (int) Math.floor(result);
+
+
             }
         }
-        if(forward<=reversed){
+        if (forward <= reversed) {
             return forward;
         }
         return reversed;
