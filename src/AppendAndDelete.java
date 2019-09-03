@@ -7,16 +7,23 @@ public class AppendAndDelete {
         int sameCharacter = 0;
         int deleteCount = 0;
         int addCount = 0;
-        if (t.length() < k) {
-            return "No";
+        if(s.length()<t.length()){
+            for(int i = 0 ;i <t.length();i++){
+                if(!s.contains(String.valueOf(t.charAt(i)))){
+                   return "No";
+                }
+            }
+            return "Yes";
         }
 
         if (s.equals(t)) {
             return "Yes";
         }
 
-        for (int i = t.length() - 1; i == 0; i--) {
-            if (s.contains(t.substring(i))) {
+        for (int i = t.length(); i != 0; i--) {
+
+            String substring =t.substring(0,i);
+            if (s.contains(substring)) {
                 sameCharacter = i;
                 break;
             }
@@ -25,9 +32,9 @@ public class AppendAndDelete {
         deleteCount = s.length() - sameCharacter;
         addCount = t.length() - sameCharacter;
 
-        if((deleteCount+addCount)<=k){
+        if ((deleteCount + addCount) <= k) {
             return "Yes";
-        }else {
+        } else {
             return "No";
         }
 
