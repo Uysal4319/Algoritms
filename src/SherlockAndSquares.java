@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class SherlockAndSquares {
-    // TODO this algorithm didn't complete.
+
     public static int squares(int a, int b) {
         int count = 0;
         int result =0;
