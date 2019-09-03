@@ -1,11 +1,11 @@
 import java.util.*;
 
 public class CutTheSticks {
-    // TODO yapilacak
+
     static int[] cutTheSticks(int[] arr) {
         List<Integer> list = new ArrayList<>();
         int res = 0;
-
+// TODO bu sekilde yapilamadi
         int small = Integer.MAX_VALUE;
         int count = arr.length;
         while (count > 0) {
@@ -49,13 +49,14 @@ public class CutTheSticks {
         Integer min;
         int count = arr.length;
 
-        for (int i = 1; i < arr.length; i++) {
+        for (int i = 0; i < arr.length; i++) {
             list.add(arr[i]);
         }
 
         while (list.size() > 0) {
 
-            for (int i = 0; i < list.size(); i++) {
+            for (int i = list.size()-1; i >=0; i--) {
+
                 if (list.get(i) == 0) {
                     list.remove(i);
                 }
@@ -66,9 +67,7 @@ public class CutTheSticks {
             for (int i = 0; i < list.size(); i++) {
                 int element = list.get(i);
                 list.set(i, element - min);
-                if (list.get(i)<=0){
-                    res++;
-                }
+                res++;
             }
 
             resultList.add(res);
@@ -76,6 +75,9 @@ public class CutTheSticks {
             res=0;
         }
 
+        if (resultList.get(resultList.size()-1)==0){
+            resultList.remove(resultList.size()-1);
+        }
         int[] result = new int[resultList.size()];
 
         for (int i = 0; i < resultList.size(); i++) {
