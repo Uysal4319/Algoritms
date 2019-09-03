@@ -7,7 +7,7 @@ public class JumpingOnTheClouds {
         int index = 0;
         int result = 100;
 
-// TODO this algorithm didn't complete.
+
 
         while (index < c.length) {
 
